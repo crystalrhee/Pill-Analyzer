@@ -1,0 +1,7 @@
+{
+  "name": "Pill Analyzer",
+  "short_name": "Pill Analyzer",
+  "description": "analyzes pills",
+  "start_url": "/",
+  "display": "standalone"
+}

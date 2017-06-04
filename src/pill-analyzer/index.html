@@ -1,0 +1,83 @@
+<!-- Paper Dropdown -->
+<link rel="import" href="../../bower_components/polymer/polymer-elements.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+
+<!-- Paper Button -->
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<dom-module id="pill-analyzer">
+  <template>
+    <style>
+      #container {
+        display: flex;
+      }
+      :host {
+        display: block;
+      }
+    </style>
+
+    <h2>Free Pill Identifier</h2>
+
+    <form is="iron-form" id="form" method="post" action="/form/handler">
+      <paper-input name="name" label="name">Name: </paper-input>
+
+      <br>
+
+      <paper-input name="ndc" label="ndc">NDC: </paper-input>
+      <br>
+
+      <paper-input name="imprint" label="imprint">Imprint: </paper-input>
+      <br>
+
+      <paper-dropdown-menu label="color">
+        <paper-listbox slot="dropdown-content" selected="0">
+          <paper-item>red</paper-item>
+          <paper-item>blue</paper-item>
+          <paper-item>white</paper-item>
+          <paper-item>orange</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <br>
+
+      <paper-dropdown-menu label="shape">
+        <paper-listbox slot="dropdown-content" selected="0">
+          <paper-item>concave</paper-item>
+          <paper-item>bisect</paper-item>
+          <paper-item>compound</paper-item>
+          <paper-item>oval</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <br>
+
+      <paper-button onclick="submitForm()">Search</paper-button>
+    </form>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+     class PillAnalyzer extends Polymer.Element {
+      static get is() { return 'pill-analyzer'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'pill-analyzer'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PillAnalyzer.is, PillAnalyzer);
+
+    function submitForm() {
+  document.getElementById('form').submit();
+}
+
+  </script>
+</dom-module>
